@@ -11,11 +11,10 @@ $app->post('/api/Plaid/updateItemWebhook', function ($request, $response) {
     );
 
     $arrayType = array();
-
     $queryParam =array();
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ["clientId","secret","accessToken","webhook"]);
+    $validateRes = $checkRequest->validate($request, ["clientId","secret","accessToken","webhookUrl"]);
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {

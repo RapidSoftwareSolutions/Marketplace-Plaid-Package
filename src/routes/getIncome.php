@@ -10,7 +10,6 @@ $app->post('/api/Plaid/getIncome', function ($request, $response) {
     );
 
     $arrayType = array();
-
     $queryParam =array();
     $settings = $this->settings;
     $checkRequest = $this->validation;

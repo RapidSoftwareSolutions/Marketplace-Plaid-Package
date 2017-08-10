@@ -106,9 +106,4 @@ $app->post('/api/Plaid/getInstitutions', function ($request, $response) {
 
 
 
-
-
-    return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
-
-
 });

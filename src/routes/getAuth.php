@@ -9,6 +9,7 @@ $app->post('/api/Plaid/getAuth', function ($request, $response) {
         "accessToken" => "access_token",
         "accountIds" => "options"
     );
+    
 
     $arrayType = array();
 

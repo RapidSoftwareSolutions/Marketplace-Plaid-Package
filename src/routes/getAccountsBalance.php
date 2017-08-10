@@ -11,7 +11,6 @@ $app->post('/api/Plaid/getAccountsBalance', function ($request, $response) {
     );
 
     $arrayType = array();
-
     $queryParam =array();
     $settings = $this->settings;
     $checkRequest = $this->validation;

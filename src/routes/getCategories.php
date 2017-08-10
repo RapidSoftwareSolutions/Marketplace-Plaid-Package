@@ -6,7 +6,6 @@ $app->post('/api/Plaid/getCategories', function ($request, $response) {
     $option = array();
 
     $arrayType = array();
-
     $queryParam =array();
     $settings = $this->settings;
     $checkRequest = $this->validation;

@@ -44,12 +44,7 @@ $app->post('/api/Plaid/getAccounts', function ($request, $response) {
 
     $client = $this->httpClient;
     $url = $settings['baseUrl'].$requestUrl;
-    if(!empty($queryParam['options']))
-    {
-        $arr = $queryParam['options'];
-        unset($queryParam['options']);
-        $queryParam['options']['account_ids'] = $arr;
-    }
+
 
     try {
 

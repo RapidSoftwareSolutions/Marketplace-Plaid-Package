@@ -8,13 +8,13 @@
 		"API",
 		"Financial",
 		"Bank",
-		"	",
-		"Article",
-		"Source news"
+		"Data",
+		"Transaction",
+		"Card"
 	],
 	"accounts": {
-		"domain": "",
-    "credentials": []
+		"domain": "https://plaid.com",
+    "credentials": ["clientId","publicToken","secret","accessToken","publicKey"]
 	},
 	"events": [
 		{
@@ -235,9 +235,10 @@
 					"info": "A list of accountIds to retrieve for the Item.Note: An error will be returned if a provided accountId is not associated with the Item.",
 					"required": false,
 					"structure": {
-						"name": "accountId",
-						"type": "String",
-						"info": "Single accountId."
+						"name": "productType",
+						"type": "Select",
+						"options":["auth","transactions","balance","identity","income"],
+						"info": "Single product type."
 					}
 				}
 
@@ -307,7 +308,7 @@
 				{
 					"name": "productsType",
 					"type": "List",
-					"info": "Single institution id.",
+					"info": "Filter the Institutions based on whether they support all products listed in products.",
 					"required": true,
 					"structure": {
 						"name": "productType",
@@ -319,7 +320,7 @@
 				{
 					"name": "querySearch",
 					"type": "String",
-					"info": "The search query. Institutions with names matching the query are returned.",
+					"info": "The search query.Institutions with names matching the query are returned.",
 					"required": true
 				}
 
@@ -358,7 +359,7 @@
 				},
 				{
 					"name": "webhookUrl",
-					"type": "credentials",
+					"type": "String",
 					"info": "The new webhookUrl to associate with the Item.",
 					"required": true
 				}
@@ -479,13 +480,13 @@
 					"name": "count",
 					"type": "Number",
 					"info": "The total number of transactions to return.",
-					"required": true
+					"required": false
 				},
 				{
 					"name": "offset",
-					"type": "String",
+					"type": "Number",
 					"info": "The number of transaction to skip before returning results.",
-					"required": true
+					"required": false
 				}
 
 
@@ -502,7 +503,7 @@
 		},
 		{
 			"name": "rotateAccessToken",
-			"description": "You can use the rotateAccessToken endpoint to rotate the accessToken associated with an Item. ",
+			"description": "You can use the rotateAccessToken endpoint to rotate the accessToken associated with an Item.",
 			"args": [
 				{
 					"name": "clientId",
@@ -552,7 +553,7 @@
 				{
 					"name": "accessTokenOld",
 					"type": "String",
-					"info": "A rotatable API token unique to a single Item.",
+					"info": "accessToken from the legacy version of Plaid’s API.",
 					"required": true
 				}
 			],
@@ -583,7 +584,7 @@
 					"required": true
 				},
 				{
-					"name": "accessTokenOld",
+					"name": "accessToken",
 					"type": "credentials",
 					"info": "A rotatable API token unique to a single Item.",
 					"required": true
@@ -631,7 +632,73 @@
 					"info": "Success"
 				}
 			]
-		}
+		},
+			{
+					"name": "deleteItem",
+					"description": "The deleteItem endpoint allows you to delete an Item",
+					"args": [
+						{
+							"name": "clientId",
+							"type": "credentials",
+							"info": "Private API key from user dashboard.",
+							"required": true
+						},
+						{
+							"name": "secret",
+							"type": "credentials",
+							"info": "Private API key from user dashboard.",
+							"required": true
+						},
+						{
+							"name": "accessTokenOld",
+							"type": "credentials",
+							"info": "A rotatable API token unique to a single Item.",
+							"required": true
+						}
+					],
+					"callbacks": [{
+						"name": "error",
+						"info": "Error"
+					},
+						{
+							"name": "success",
+							"info": "Success"
+						}
+					]
+				},
+				{
+							"name": "resetItemLogin",
+							"description": "The resetItemLogin endpoint allows you put an Item in an ITEM_LOGIN_REQUIRED error state.",
+							"args": [
+								{
+									"name": "clientId",
+									"type": "credentials",
+									"info": "Private API key from user dashboard.",
+									"required": true
+								},
+								{
+									"name": "secret",
+									"type": "credentials",
+									"info": "Private API key from user dashboard.",
+									"required": true
+								},
+								{
+									"name": "accessTokenOld",
+									"type": "credentials",
+									"info": "A rotatable API token unique to a single Item.",
+									"required": true
+								}
+							],
+							"callbacks": [{
+								"name": "error",
+								"info": "Error"
+							},
+								{
+									"name": "success",
+									"info": "Success"
+								}
+							]
+						}
 
 
 

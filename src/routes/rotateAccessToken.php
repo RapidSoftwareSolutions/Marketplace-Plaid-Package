@@ -10,7 +10,6 @@ $app->post('/api/Plaid/rotateAccessToken', function ($request, $response) {
     );
 
     $arrayType = array();
-
     $queryParam =array();
     $settings = $this->settings;
     $checkRequest = $this->validation;

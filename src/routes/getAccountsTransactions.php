@@ -14,7 +14,6 @@ $app->post('/api/Plaid/getAccountsTransactions', function ($request, $response) 
     );
 
     $arrayType = array();
-
     $queryParam =array();
     $settings = $this->settings;
     $checkRequest = $this->validation;

@@ -44,8 +44,7 @@ $app->post('/api/Plaid/updateAccessTokenVersion', function ($request, $response)
     $client = $this->httpClient;
     $url = $settings['baseUrl'].$requestUrl;
 
-    print_R($queryParam);
-    exit();
+
     try {
 
         $resp =  $client->request('POST', $url ,['json' => $queryParam] );

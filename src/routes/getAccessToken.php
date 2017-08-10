@@ -93,11 +93,4 @@ $app->post('/api/Plaid/getAccessToken', function ($request, $response) {
     }
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 
-
-
-
-
-    return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
-
-
 });

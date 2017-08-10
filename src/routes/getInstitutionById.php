@@ -13,7 +13,7 @@ $app->post('/api/Plaid/getInstitutionById', function ($request, $response) {
     $queryParam =array();
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, []);
+    $validateRes = $checkRequest->validate($request, ["publicKey","institutionId"]);
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {
@@ -42,12 +42,12 @@ $app->post('/api/Plaid/getInstitutionById', function ($request, $response) {
 
     $client = $this->httpClient;
     $url = $settings['baseUrl'].$requestUrl;
-    if(!empty($queryParam['options']))
-    {
-        $arr = $queryParam['options'];
-        unset($queryParam['options']);
-        $queryParam['options'] = json_encode($arr);
-    }
+    // if(!empty($queryParam['options']))
+    // {
+    //     $arr = $queryParam['options'];
+    //     unset($queryParam['options']);
+    //     $queryParam['options'] = json_encode($arr);
+    // }
 
 
     try {
@@ -99,11 +99,6 @@ $app->post('/api/Plaid/getInstitutionById', function ($request, $response) {
     }
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 
-
-
-
-
-    return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 
 
 });
