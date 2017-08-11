@@ -53,14 +53,14 @@ $app->post('/api/Plaid/getAccountsTransactions', function ($request, $response) 
     {
         $arr = $queryParam['count'];
         unset($queryParam['count']);
-        $queryParam['options']['count'] = $arr;
+        $queryParam['options']['count'] = (int) $arr;
     }
 
     if(!empty($queryParam['offset']))
     {
         $arr = $queryParam['offset'];
         unset($queryParam['offset']);
-        $queryParam['options']['offset'] = $arr;
+        $queryParam['options']['offset'] = (int) $arr;
     }
 
     try {

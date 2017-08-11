@@ -53,7 +53,15 @@ $app->post('/api/Plaid/getAllInstitutions', function ($request, $response) {
     $client = $this->httpClient;
     $url = $settings['baseUrl'].$requestUrl;
 
+    if(!empty($queryParam['count']))
+    {
+        $queryParam['count'] = (int) $queryParam['count'];
+    }
 
+    if(!empty($queryParam['offset']))
+    {
+        $queryParam['offset'] = (int) $queryParam['offset'];
+    }
 
     try {
 
