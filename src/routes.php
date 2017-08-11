@@ -9,6 +9,7 @@ $routes = [
     'updateAccessTokenVersion',
     'deleteItem',
     'getIdentity',
+    'createItemWebhook',
     'updateItemWebhook',
     'rotateAccessToken',
     'getAccountsBalance',

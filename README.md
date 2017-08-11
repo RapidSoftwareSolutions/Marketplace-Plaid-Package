@@ -90,6 +90,16 @@ Returns a JSON response containing details on a specified financial institution 
 | productsType| List       | Filter the Institutions based on whether they support all products listed in products.
 | querySearch | String     | The search query.Institutions with names matching the query are returned.
 
+## Plaid.createItemWebhook
+The createItemWebhook allows you to create the webhook associated with an Item.
+
+| Field      | Type       | Description
+|------------|------------|----------
+| clientId   | credentials| Private API key from user dashboard.
+| secret     | credentials| Private API key from user dashboard.
+| accessToken| credentials| A rotatable API token unique to a single Item.
+| webhookUrl | String     | The new webhookUrl to associate with the Item.
+
 ## Plaid.updateItemWebhook
 The updateItemWebhook allows you to update the webhook associated with an Item.
 

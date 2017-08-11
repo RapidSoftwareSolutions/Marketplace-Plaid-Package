@@ -29,7 +29,7 @@
 				"new_transactions": 19
 			},
 			"steps": [
-				"Navigate to updateItemWebhook block",
+				"Navigate to updateItemWebhook or createItemWebhook block",
 				"Set webhookUrl to __WEBHOOK_URL__"
 			],
 			"args": [
@@ -323,6 +323,47 @@
 					"info": "The search query.Institutions with names matching the query are returned.",
 					"required": true
 				}
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "createItemWebhook",
+			"description": "The createItemWebhook allows you to create the webhook associated with an Item.",
+			"args": [
+				{
+					"name": "clientId",
+					"type": "credentials",
+					"info": "Private API key from user dashboard.",
+					"required": true
+				},
+				{
+					"name": "secret",
+					"type": "credentials",
+					"info": "Private API key from user dashboard.",
+					"required": true
+				},
+				{
+					"name": "accessToken",
+					"type": "credentials",
+					"info": "A rotatable API token unique to a single Item.",
+					"required": true
+				},
+				{
+					"name": "webhookUrl",
+					"type": "String",
+					"info": "The new webhookUrl to associate with the Item.",
+					"required": true
+				}
+
 
 			],
 			"callbacks": [{
