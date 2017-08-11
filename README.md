@@ -6,8 +6,9 @@ Our technology makes it easy to access high-quality transaction data, validate a
 
 ## How to get credentials: 
 1. Register on [plaid.com](https://plaid.com).
-2. After creation your account you will see api clientId,api publicKey and secret. 
-
+2. After creation your account you will see api clientId,api publicKey and secret.
+3. To get the publicToken you need to create [Plaid link](https://blog.plaid.com/plaid-link/) with your api publicKey.
+4. After authorization, your publicToken will be visible in the GET parameters.
 
 ## Custom datatypes:
   |Datatype|Description|Example

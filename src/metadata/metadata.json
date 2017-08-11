@@ -649,7 +649,7 @@
 					"required": true
 				},
 				{
-					"name": "accessTokenOld",
+					"name": "accessToken",
 					"type": "credentials",
 					"info": "A rotatable API token unique to a single Item.",
 					"required": true
@@ -681,7 +681,7 @@
 					"required": true
 				},
 				{
-					"name": "accessTokenOld",
+					"name": "accessToken",
 					"type": "credentials",
 					"info": "A rotatable API token unique to a single Item.",
 					"required": true
@@ -713,7 +713,7 @@
 					"required": true
 				},
 				{
-					"name": "accessTokenOld",
+					"name": "accessToken",
 					"type": "credentials",
 					"info": "A rotatable API token unique to a single Item.",
 					"required": true
