@@ -35,6 +35,11 @@
 			"args": [
 				{
 
+					"name": "accessToken",
+					"type": "credentials",
+					"info": "A rotatable API token unique to a single Item.",
+					"required": false
+
 				}
 			]
 		}],
