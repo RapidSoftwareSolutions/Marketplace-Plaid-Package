@@ -1,7 +1,7 @@
 [![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/Plaid/functions?utm_source=RapidAPIGitHub_PlaidFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
 # Plaid Package
 Our technology makes it easy to access high-quality transaction data, validate account ownership, and mitigate risks in a user-friendly way
-* Domain: [https://plaid.com](https://plaid.com)
+* Domain: [plaid.com](https://plaid.com)
 * Credentials: clientId,publicKey,secret, publicToken,accessToken 
 
 ## How to get credentials: 
