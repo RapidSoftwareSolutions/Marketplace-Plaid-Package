@@ -27,7 +27,7 @@ Exchange a Link publicToken for an API accessToken.
 |------------|------------|----------
 | clientId   | credentials| Private API key from user dashboard.
 | secret     | credentials| Private API key from user dashboard.
-| publicToken| String     | Short-lived API token.
+| publicToken| credentials     | Short-lived API token.
 
 ## Plaid.getSingleItem
 The getSingleItem endpoint returns information about the status of an Item: Available products; Billed products; Error status; Institution ID ;Item ID; Webhook;
