@@ -5,7 +5,7 @@ Our technology makes it easy to access high-quality transaction data, validate a
 * Credentials: clientId,publicKey,secret, publicToken,accessToken 
 
 ## How to get credentials: 
-1. Register on [https://plaid.com](https://plaid.com).
+1. Register on [plaid.com](https://plaid.com).
 2. After creation your account you will see api clientId,api publicKey and secret. 
 
 
@@ -141,7 +141,7 @@ You can use the rotateAccessToken endpoint to rotate the accessToken associated 
 | accessToken| String     | A rotatable API token unique to a single Item.
 
 ## Plaid.updateAccessTokenVersion
-Calling this endpoint does not revoke the legacy API access_token. You can still use the legacy access_token in the legacy API environment to retrieve data. 
+Calling this endpoint does not revoke the legacy API accessToken. You can still use the legacy accessToken in the legacy API environment to retrieve data. 
 
 | Field         | Type       | Description
 |---------------|------------|----------
