@@ -2,7 +2,7 @@
 # Plaid Package
 Our technology makes it easy to access high-quality transaction data, validate account ownership, and mitigate risks in a user-friendly way.
 * Domain: [plaid.com](https://plaid.com)
-* Credentials: clientId,publicKey,secret, publicToken,accessToken 
+* Credentials: clientId,secret,accessToken 
 
 ## How to get credentials: 
 1. Register on [plaid.com](https://plaid.com).
@@ -72,10 +72,10 @@ Returns response containing details on all financial institutions currently supp
 ## Plaid.getSingleInstitution
 Returns response containing details on a specified financial institution currently supported by Plaid.
 
-| Field        | Type       | Description
-|--------------|------------|----------
-| publicKey    | credentials| Private API key from user dashboard.
-| institutionId| String     | Single institution id.
+| Field        | Type  | Description
+|--------------|-------|----------
+| publicKey    | String| Private API key from user dashboard.
+| institutionId| String| Single institution id.
 
 ## Plaid.getCategories
 Send a request to the getCategories endpoint to get detailed information on categories returned by Plaid. This endpoint does not require authentication.
@@ -85,11 +85,11 @@ No arguments.
 ## Plaid.searchInstitution
 Returns response containing details on a specified financial institution currently supported by Plaid.
 
-| Field       | Type       | Description
-|-------------|------------|----------
-| publicKey   | credentials| Private API key from user dashboard.
-| productsType| List       | Filter the Institutions based on whether they support all products listed in products.
-| querySearch | String     | The search query.Institutions with names matching the query are returned.
+| Field       | Type  | Description
+|-------------|-------|----------
+| publicKey   | String| Private API key from user dashboard.
+| productsType| List  | Filter the Institutions based on whether they support all products listed in products.
+| querySearch | String| The search query.Institutions with names matching the query are returned.
 
 ## Plaid.createWebhook
 The createWebhook allows you to create the webhook associated with an Item.
@@ -150,15 +150,6 @@ You can use the rotateAccessToken endpoint to rotate the accessToken associated 
 | clientId   | credentials| Private API key from user dashboard.
 | secret     | credentials| Private API key from user dashboard.
 | accessToken| String     | A rotatable API token unique to a single Item.
-
-## Plaid.updateAccessTokenVersion
-Calling this endpoint does not revoke the legacy API access_token. You can still use the legacy access_token in the legacy API environment to retrieve data. 
-
-| Field         | Type       | Description
-|---------------|------------|----------
-| clientId      | credentials| Private API key from user dashboard.
-| secret        | credentials| Private API key from user dashboard.
-| accessTokenOld| String     | accessToken from the legacy version of Plaid’s API.
 
 ## Plaid.getIncome
 The getIncome endpoint allows you to retrieve information pertaining to a Item’s income.

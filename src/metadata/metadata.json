@@ -16,10 +16,8 @@
 		"domain": "https://plaid.com",
 		"credentials": [
 			"clientId",
-			"publicToken",
 			"secret",
-			"accessToken",
-			"publicKey"
+			"accessToken"
 		]
 	},
 	"events": [{
@@ -260,7 +258,7 @@
 			"description": "Returns response containing details on a specified financial institution currently supported by Plaid.",
 			"args": [{
 				"name": "publicKey",
-				"type": "credentials",
+				"type": "String",
 				"info": "Private API key from user dashboard.",
 				"required": true
 			},
@@ -302,7 +300,7 @@
 			"description": "Returns response containing details on a specified financial institution currently supported by Plaid.",
 			"args": [{
 				"name": "publicKey",
-				"type": "credentials",
+				"type": "String",
 				"info": "Private API key from user dashboard.",
 				"required": true
 			},
@@ -556,38 +554,6 @@
 					"name": "accessToken",
 					"type": "String",
 					"info": "A rotatable API token unique to a single Item.",
-					"required": true
-				}
-			],
-			"callbacks": [{
-				"name": "error",
-				"info": "Error"
-			},
-				{
-					"name": "success",
-					"info": "Success"
-				}
-			]
-		},
-		{
-			"name": "updateAccessTokenVersion",
-			"description": "Calling this endpoint does not revoke the legacy API access_token. You can still use the legacy access_token in the legacy API environment to retrieve data. ",
-			"args": [{
-				"name": "clientId",
-				"type": "credentials",
-				"info": "Private API key from user dashboard.",
-				"required": true
-			},
-				{
-					"name": "secret",
-					"type": "credentials",
-					"info": "Private API key from user dashboard.",
-					"required": true
-				},
-				{
-					"name": "accessTokenOld",
-					"type": "String",
-					"info": "accessToken from the legacy version of Plaid’s API.",
 					"required": true
 				}
 			],

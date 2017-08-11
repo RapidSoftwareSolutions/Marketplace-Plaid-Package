@@ -6,7 +6,6 @@ $routes = [
     'getAccessToken',
     'getAuth',
     'getSingleItem',
-    'updateAccessTokenVersion',
     'deleteItem',
     'getIdentity',
     'createWebhook',
