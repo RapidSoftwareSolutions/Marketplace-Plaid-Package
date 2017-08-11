@@ -18,6 +18,7 @@ Our technology makes it easy to access high-quality transaction data, validate a
   |Select|String with predefined values|```sample```
   |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
  
+ 
 ## Plaid.getAccessToken
 Exchange a Link publicToken for an API accessToken.
 
@@ -27,8 +28,8 @@ Exchange a Link publicToken for an API accessToken.
 | secret     | credentials| Private API key from user dashboard.
 | publicToken| String     | Short-lived API token.
 
-## Plaid.getItem
-The getItem endpoint returns information about the status of an Item: Available products; Billed products; Error status; Institution ID; Item ID; Webhook;
+## Plaid.getSingleItem
+The getSingleItem endpoint returns information about the status of an Item: Available products; Billed products; Error status; Institution ID ;Item ID; Webhook;
 
 | Field      | Type       | Description
 |------------|------------|----------
@@ -56,8 +57,8 @@ The getAccountsBalance endpoint returns the real-time balance for each of an Ite
 | accessToken| credentials| A rotatable API token unique to a single Item.
 | accountIds | List       | A list of accountIds to retrieve for the Item.Note: An error will be returned if a provided accountId is not associated with the Item.
 
-## Plaid.getInstitutions
-Returns a JSON response containing details on all financial institutions currently supported by Plaid.
+## Plaid.getAllInstitutions
+Returns response containing details on all financial institutions currently supported by Plaid.
 
 | Field       | Type       | Description
 |-------------|------------|----------
@@ -65,11 +66,11 @@ Returns a JSON response containing details on all financial institutions current
 | secret      | credentials| Private API key from user dashboard.
 | accessToken | credentials| A rotatable API token unique to a single Item.
 | count       | Number     | The total number of Institutions to return. The minimum is 0 and the maximum is 500.
-| offset      | String     | The number of Institutions to skip before returning results. The minimum is 1. There is no maximum.
+| offset      | Number     | The number of Institutions to skip before returning results. The minimum is 1. There is no maximum.
 | ProductsType| List       | A list of accountIds to retrieve for the Item.Note: An error will be returned if a provided accountId is not associated with the Item.
 
-## Plaid.getInstitutionById
-Returns a JSON response containing details on a specified financial institution currently supported by Plaid.
+## Plaid.getSingleInstitution
+Returns response containing details on a specified financial institution currently supported by Plaid.
 
 | Field        | Type       | Description
 |--------------|------------|----------
@@ -82,7 +83,7 @@ Send a request to the getCategories endpoint to get detailed information on cate
 No arguments.
 
 ## Plaid.searchInstitution
-Returns a JSON response containing details on a specified financial institution currently supported by Plaid.
+Returns response containing details on a specified financial institution currently supported by Plaid.
 
 | Field       | Type       | Description
 |-------------|------------|----------
@@ -90,8 +91,8 @@ Returns a JSON response containing details on a specified financial institution 
 | productsType| List       | Filter the Institutions based on whether they support all products listed in products.
 | querySearch | String     | The search query.Institutions with names matching the query are returned.
 
-## Plaid.createItemWebhook
-The createItemWebhook allows you to create the webhook associated with an Item.
+## Plaid.createWebhook
+The createWebhook allows you to create the webhook associated with an Item.
 
 | Field      | Type       | Description
 |------------|------------|----------
@@ -100,8 +101,8 @@ The createItemWebhook allows you to create the webhook associated with an Item.
 | accessToken| credentials| A rotatable API token unique to a single Item.
 | webhookUrl | String     | The new webhookUrl to associate with the Item.
 
-## Plaid.updateItemWebhook
-The updateItemWebhook allows you to update the webhook associated with an Item.
+## Plaid.updateWebhook
+The updateWebhook allows you to update the webhook associated with an Item.
 
 | Field      | Type       | Description
 |------------|------------|----------
@@ -151,7 +152,7 @@ You can use the rotateAccessToken endpoint to rotate the accessToken associated 
 | accessToken| String     | A rotatable API token unique to a single Item.
 
 ## Plaid.updateAccessTokenVersion
-Calling this endpoint does not revoke the legacy API accessToken. You can still use the legacy accessToken in the legacy API environment to retrieve data. 
+Calling this endpoint does not revoke the legacy API access_token. You can still use the legacy access_token in the legacy API environment to retrieve data. 
 
 | Field         | Type       | Description
 |---------------|------------|----------
