@@ -74,7 +74,7 @@ Returns response containing details on a specified financial institution current
 
 | Field        | Type  | Description
 |--------------|-------|----------
-| publicKey    | String| Private API key from user dashboard.
+| publicKey    | String| API key from user dashboard.
 | institutionId| String| Single institution id.
 
 ## Plaid.getCategories
