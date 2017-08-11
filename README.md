@@ -19,15 +19,6 @@ Our technology makes it easy to access high-quality transaction data, validate a
   |Select|String with predefined values|```sample```
   |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
  
-# Plaid Package
-Our technology makes it easy to access high-quality transaction data, validate account ownership, and mitigate risks in a user-friendly way.
-* Domain: https://plaid.com
-* Credentials: clientId, secret
-
-## How to get credentials: 
-0. Item one 
-1. Item two
- 
 ## Plaid.getAccessToken
 Exchange a Link publicToken for an API accessToken.
 
