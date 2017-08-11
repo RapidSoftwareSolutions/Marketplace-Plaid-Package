@@ -1,5 +1,5 @@
 <?php
-$app->post('/api/plaid/webhookEvent', function ($request, $response) {
+$app->post('/api/Plaid/webhookEvent', function ($request, $response) {
     $checkRequest = $this->validation;
     $validateRes = $checkRequest->validate($request, []);
     if (!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback'] == 'error') {
