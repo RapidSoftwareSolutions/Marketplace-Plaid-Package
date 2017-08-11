@@ -1,20 +1,20 @@
 <?php
 
-$app->post('/api/Plaid/getItem', function ($request, $response) {
+$app->post('/api/Plaid/updateWebhook', function ($request, $response) {
 
-    $requestUrl = '/item/get';
+    $requestUrl = '/item/webhook/update';
     $option = array(
         "clientId" => "client_id",
         "secret" => "secret",
-        "accessToken" => "access_token"
+        "accessToken" => "access_token",
+        "webhookUrl" => "webhook"
     );
 
     $arrayType = array();
-
     $queryParam =array();
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ["clientId","secret","accessToken"]);
+    $validateRes = $checkRequest->validate($request, ["clientId","secret","accessToken","webhookUrl"]);
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {

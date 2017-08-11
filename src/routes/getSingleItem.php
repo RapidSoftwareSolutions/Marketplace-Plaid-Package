@@ -1,14 +1,12 @@
 <?php
 
-$app->post('/api/Plaid/getInstitutions', function ($request, $response) {
+$app->post('/api/Plaid/getSingleItem', function ($request, $response) {
 
-    $requestUrl = '/institutions/get';
+    $requestUrl = '/item/get';
     $option = array(
         "clientId" => "client_id",
         "secret" => "secret",
-        "count" => "count",
-        "offset" => "offset",
-        "productsType" => "options"
+        "accessToken" => "access_token"
     );
 
     $arrayType = array();
@@ -16,7 +14,7 @@ $app->post('/api/Plaid/getInstitutions', function ($request, $response) {
     $queryParam =array();
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ["offset","count","secret","clientId"]);
+    $validateRes = $checkRequest->validate($request, ["clientId","secret","accessToken"]);
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {
@@ -24,7 +22,6 @@ $app->post('/api/Plaid/getInstitutions', function ($request, $response) {
     }
 
 
-    $url = "https://newsapi.org/v1/articles";
 
     //Change alias and formatted array
     foreach($option as $alias => $value)
@@ -43,16 +40,10 @@ $app->post('/api/Plaid/getInstitutions', function ($request, $response) {
     }
 
 
-    if(!empty($queryParam['options']))
-    {
-        $arr = $queryParam['options'];
-        unset($queryParam['options']);
-        $queryParam['options']['products'] = $arr;
-    }
+
 
     $client = $this->httpClient;
     $url = $settings['baseUrl'].$requestUrl;
-
 
 
     try {
@@ -66,10 +57,7 @@ $app->post('/api/Plaid/getInstitutions', function ($request, $response) {
             $dataBody = $resp->getBody()->getContents();
 
             $result['callback'] = 'success';
-            $result['contextWrites']['to'] = array('result' => json_decode( $dataBody ) );
-
-
-
+            $result['contextWrites']['to'] = array('result' => json_decode($dataBody) );
 
         } else {
             $result['callback'] = 'error';
@@ -103,7 +91,6 @@ $app->post('/api/Plaid/getInstitutions', function ($request, $response) {
         $result['contextWrites']['to']['status_msg'] = 'Something went wrong inside the package.';
     }
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
-
 
 
 });

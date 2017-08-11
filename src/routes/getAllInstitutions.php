@@ -1,11 +1,14 @@
 <?php
 
-$app->post('/api/Plaid/getInstitutionById', function ($request, $response) {
+$app->post('/api/Plaid/getAllInstitutions', function ($request, $response) {
 
-    $requestUrl = '/institutions/get_by_id';
+    $requestUrl = '/institutions/get';
     $option = array(
-        "publicKey" => "public_key",
-        "institutionId" => "institution_id"
+        "clientId" => "client_id",
+        "secret" => "secret",
+        "count" => "count",
+        "offset" => "offset",
+        "productsType" => "options"
     );
 
     $arrayType = array();
@@ -13,13 +16,15 @@ $app->post('/api/Plaid/getInstitutionById', function ($request, $response) {
     $queryParam =array();
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ["publicKey","institutionId"]);
+    $validateRes = $checkRequest->validate($request, ["offset","count","secret","clientId"]);
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {
         $postData = $validateRes;
     }
 
+
+    $url = "https://newsapi.org/v1/articles";
 
     //Change alias and formatted array
     foreach($option as $alias => $value)
@@ -38,16 +43,16 @@ $app->post('/api/Plaid/getInstitutionById', function ($request, $response) {
     }
 
 
-
+    if(!empty($queryParam['options']))
+    {
+        $arr = $queryParam['options'];
+        unset($queryParam['options']);
+        $queryParam['options']['products'] = $arr;
+    }
 
     $client = $this->httpClient;
     $url = $settings['baseUrl'].$requestUrl;
-    // if(!empty($queryParam['options']))
-    // {
-    //     $arr = $queryParam['options'];
-    //     unset($queryParam['options']);
-    //     $queryParam['options'] = json_encode($arr);
-    // }
+
 
 
     try {
@@ -61,7 +66,7 @@ $app->post('/api/Plaid/getInstitutionById', function ($request, $response) {
             $dataBody = $resp->getBody()->getContents();
 
             $result['callback'] = 'success';
-            $result['contextWrites']['to'] = array('result' => json_decode($dataBody));
+            $result['contextWrites']['to'] = array('result' => json_decode( $dataBody ) );
 
 
 

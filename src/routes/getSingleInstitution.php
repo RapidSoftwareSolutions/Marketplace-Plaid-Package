@@ -1,26 +1,24 @@
 <?php
 
-$app->post('/api/Plaid/createItemWebhook', function ($request, $response) {
+$app->post('/api/Plaid/getSingleInstitution', function ($request, $response) {
 
-    $requestUrl = '/item/webhook/update';
+    $requestUrl = '/institutions/get_by_id';
     $option = array(
-        "clientId" => "client_id",
-        "secret" => "secret",
-        "accessToken" => "access_token",
-        "webhookUrl" => "webhook"
+        "publicKey" => "public_key",
+        "institutionId" => "institution_id"
     );
 
     $arrayType = array();
+
     $queryParam =array();
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ["clientId","secret","accessToken","webhookUrl"]);
+    $validateRes = $checkRequest->validate($request, ["publicKey","institutionId"]);
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {
         $postData = $validateRes;
     }
-
 
 
     //Change alias and formatted array
@@ -44,6 +42,12 @@ $app->post('/api/Plaid/createItemWebhook', function ($request, $response) {
 
     $client = $this->httpClient;
     $url = $settings['baseUrl'].$requestUrl;
+    // if(!empty($queryParam['options']))
+    // {
+    //     $arr = $queryParam['options'];
+    //     unset($queryParam['options']);
+    //     $queryParam['options'] = json_encode($arr);
+    // }
 
 
     try {
@@ -57,7 +61,10 @@ $app->post('/api/Plaid/createItemWebhook', function ($request, $response) {
             $dataBody = $resp->getBody()->getContents();
 
             $result['callback'] = 'success';
-            $result['contextWrites']['to'] = array('result' => json_decode($dataBody) );
+            $result['contextWrites']['to'] = array('result' => json_decode($dataBody));
+
+
+
 
         } else {
             $result['callback'] = 'error';
@@ -91,6 +98,7 @@ $app->post('/api/Plaid/createItemWebhook', function ($request, $response) {
         $result['contextWrites']['to']['status_msg'] = 'Something went wrong inside the package.';
     }
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
+
 
 
 });

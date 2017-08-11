@@ -1,6 +1,6 @@
 <?php
 
-$app->post('/api/Plaid/updateItemWebhook', function ($request, $response) {
+$app->post('/api/Plaid/createWebhook', function ($request, $response) {
 
     $requestUrl = '/item/webhook/update';
     $option = array(

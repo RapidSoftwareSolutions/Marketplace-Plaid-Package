@@ -1,7 +1,7 @@
 {
 	"package": "Plaid",
 	"tagline": "Plaid",
-	"description": "Our technology makes it easy to access high-quality transaction data, validate account ownership, and mitigate risks in a user-friendly way",
+	"description": "Our technology makes it easy to access high-quality transaction data, validate account ownership, and mitigate risks in a user-friendly way.",
 	"image": "https://logo.clearbit.com/plaid.com",
 	"repo": "https://github.com/RapidSoftwareSolutions/Marketplace-Plaid-Package",
 	"keywords": [
@@ -29,7 +29,7 @@
 				"new_transactions": 19
 			},
 			"steps": [
-				"Navigate to updateItemWebhook or createItemWebhook block",
+				"Navigate to updateWebhook or createWebhook block.",
 				"Set webhookUrl to __WEBHOOK_URL__"
 			],
 			"args": [
@@ -73,8 +73,8 @@
 			]
 		},
 		{
-			"name": "getItem",
-			"description": "The getItem endpoint returns information about the status of an Item: Available products; Billed products; Error status; Institution ID (institution_id);Item ID (item_id); Webhook;",
+			"name": "getSingleItem",
+			"description": "The getSingleItem endpoint returns information about the status of an Item: Available products; Billed products; Error status; Institution ID ;Item ID; Webhook;",
 			"args": [
 				{
 					"name": "clientId",
@@ -196,8 +196,8 @@
 			]
 		 },
 		{
-			"name": "getInstitutions",
-			"description": "Returns a JSON response containing details on all financial institutions currently supported by Plaid.",
+			"name": "getAllInstitutions",
+			"description": "Returns response containing details on all financial institutions currently supported by Plaid.",
 			"args": [
 				{
 					"name": "clientId",
@@ -225,7 +225,7 @@
 				},
 				{
 					"name": "offset",
-					"type": "String",
+					"type": "Number",
 					"info": "The number of Institutions to skip before returning results. The minimum is 1. There is no maximum.",
 					"required": true
 				},
@@ -254,8 +254,8 @@
 			]
 		},
 		{
-			"name": "getInstitutionById",
-			"description": "Returns a JSON response containing details on a specified financial institution currently supported by Plaid.",
+			"name": "getSingleInstitution",
+			"description": "Returns response containing details on a specified financial institution currently supported by Plaid.",
 			"args": [
 				{
 					"name": "PublicKey",
@@ -297,7 +297,7 @@
 		},
 		{
 			"name": "searchInstitution",
-			"description": "Returns a JSON response containing details on a specified financial institution currently supported by Plaid.",
+			"description": "Returns response containing details on a specified financial institution currently supported by Plaid.",
 			"args": [
 				{
 					"name": "PublicKey",
@@ -336,8 +336,8 @@
 			]
 		},
 		{
-			"name": "createItemWebhook",
-			"description": "The createItemWebhook allows you to create the webhook associated with an Item.",
+			"name": "createWebhook",
+			"description": "The createWebhook allows you to create the webhook associated with an Item.",
 			"args": [
 				{
 					"name": "clientId",
@@ -377,8 +377,8 @@
 			]
 		},
 		{
-			"name": "updateItemWebhook",
-			"description": "The updateItemWebhook allows you to update the webhook associated with an Item.",
+			"name": "updateWebhook",
+			"description": "The updateWebhook allows you to update the webhook associated with an Item.",
 			"args": [
 				{
 					"name": "clientId",
