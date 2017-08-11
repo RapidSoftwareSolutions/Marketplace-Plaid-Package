@@ -1,6 +1,6 @@
 {
 	"package": "Plaid",
-	"tagline": "Plaid",
+	"tagline": "Plaid API",
 	"description": "Our technology makes it easy to access high-quality transaction data, validate account ownership, and mitigate risks in a user-friendly way.",
 	"image": "https://logo.clearbit.com/plaid.com",
 	"repo": "https://github.com/RapidSoftwareSolutions/Marketplace-Plaid-Package",
@@ -14,79 +14,76 @@
 	],
 	"accounts": {
 		"domain": "https://plaid.com",
-    "credentials": ["clientId","publicToken","secret","accessToken","publicKey"]
+		"credentials": [
+			"clientId",
+			"publicToken",
+			"secret",
+			"accessToken",
+			"publicKey"
+		]
 	},
-	"events": [
-		{
-			"name": "webhookEvent",
-			"description": "Event for session",
-			"payload":
-			{
-				"webhook_type": "TRANSACTIONS",
-				"webhook_code": "INITIAL_UPDATE",
-				"item_id": "wz666MBjYWTp2PDzzggYhM6oWWmBb",
-				"error": null,
-				"new_transactions": 19
-			},
-			"steps": [
-				"Navigate to updateWebhook or createWebhook block.",
-				"Set webhookUrl to __WEBHOOK_URL__"
-			],
-			"args": [
-				{
-
-					"name": "accessToken",
-					"type": "credentials",
-					"info": "A rotatable API token unique to a single Item.",
-					"required": false
-
-				}
-			]
-		}],
-	"blocks": [
-		{
-			"name": "getAccessToken",
-			"description": "Exchange a Link publicToken for an API accessToken.",
-			"args": [
-				{
-					"name": "clientId",
-					"type": "credentials",
-					"info": "Private API key from user dashboard.",
-					"required": true
-				},
-				{
-					"name": "secret",
-					"type": "credentials",
-					"info": "Private API key from user dashboard.",
-					"required": true
-				},
-				{
-					"name": "publicToken",
-					"type": "String",
-					"info": "Short-lived API token.",
-					"required": true
-				}
-			],
-			"callbacks": [{
-				"name": "error",
-				"info": "Error"
-			},
-				{
-					"name": "success",
-					"info": "Success"
-				}
-			]
+	"events": [{
+		"name": "webhookEvent",
+		"description": "Event for session",
+		"payload": {
+			"webhook_type": "TRANSACTIONS",
+			"webhook_code": "INITIAL_UPDATE",
+			"item_id": "wz666MBjYWTp2PDzzggYhM6oWWmBb",
+			"error": null,
+			"new_transactions": 19
 		},
+		"steps": [
+			"Navigate to updateWebhook or createWebhook block.",
+			"Set webhookUrl to __WEBHOOK_URL__"
+		],
+		"args": [{
+			"name": "accessToken",
+			"type": "credentials",
+			"info": "A rotatable API token unique to a single Item.",
+			"required": false
+		}]
+	}],
+	"blocks": [{
+		"name": "getAccessToken",
+		"description": "Exchange a Link publicToken for an API accessToken.",
+		"args": [{
+			"name": "clientId",
+			"type": "credentials",
+			"info": "Private API key from user dashboard.",
+			"required": true
+		},
+			{
+				"name": "secret",
+				"type": "credentials",
+				"info": "Private API key from user dashboard.",
+				"required": true
+			},
+			{
+				"name": "publicToken",
+				"type": "String",
+				"info": "Short-lived API token.",
+				"required": true
+			}
+		],
+		"callbacks": [{
+			"name": "error",
+			"info": "Error"
+		},
+			{
+				"name": "success",
+				"info": "Success"
+			}
+		]
+	},
 		{
 			"name": "getSingleItem",
 			"description": "The getSingleItem endpoint returns information about the status of an Item: Available products; Billed products; Error status; Institution ID ;Item ID; Webhook;",
-			"args": [
-				{
-					"name": "clientId",
-					"type": "credentials",
-					"info": "Private API key from user dashboard.",
-					"required": true
-				},
+			"args": [{
+				"name": "clientId",
+				"type": "credentials",
+				"info": "Private API key from user dashboard.",
+				"required": true
+			},
 				{
 					"name": "secret",
 					"type": "credentials",
@@ -113,13 +110,12 @@
 		{
 			"name": "getAuth",
 			"description": "The getAuth endpoint allows you to retrieve the bank account and routing numbers associated with an Item’s checking and savings accounts, along with high-level account data and balances.",
-			"args": [
-				{
-					"name": "clientId",
-					"type": "credentials",
-					"info": "Private API key from user dashboard.",
-					"required": true
-				},
+			"args": [{
+				"name": "clientId",
+				"type": "credentials",
+				"info": "Private API key from user dashboard.",
+				"required": true
+			},
 				{
 					"name": "secret",
 					"type": "credentials",
@@ -143,7 +139,6 @@
 						"info": "Single accountId."
 					}
 				}
-
 			],
 			"callbacks": [{
 				"name": "error",
@@ -154,17 +149,16 @@
 					"info": "Success"
 				}
 			]
-		} ,
+		},
 		{
 			"name": "getAccountsBalance",
 			"description": "The getAccountsBalance endpoint returns the real-time balance for each of an Item’s accounts.",
-			"args": [
-				{
-					"name": "clientId",
-					"type": "credentials",
-					"info": "Private API key from user dashboard.",
-					"required": true
-				},
+			"args": [{
+				"name": "clientId",
+				"type": "credentials",
+				"info": "Private API key from user dashboard.",
+				"required": true
+			},
 				{
 					"name": "secret",
 					"type": "credentials",
@@ -188,7 +182,6 @@
 						"info": "Single accountId."
 					}
 				}
-
 			],
 			"callbacks": [{
 				"name": "error",
@@ -199,17 +192,16 @@
 					"info": "Success"
 				}
 			]
-		 },
+		},
 		{
 			"name": "getAllInstitutions",
 			"description": "Returns response containing details on all financial institutions currently supported by Plaid.",
-			"args": [
-				{
-					"name": "clientId",
-					"type": "credentials",
-					"info": "Private API key from user dashboard.",
-					"required": true
-				},
+			"args": [{
+				"name": "clientId",
+				"type": "credentials",
+				"info": "Private API key from user dashboard.",
+				"required": true
+			},
 				{
 					"name": "secret",
 					"type": "credentials",
@@ -242,11 +234,16 @@
 					"structure": {
 						"name": "productType",
 						"type": "Select",
-						"options":["auth","transactions","balance","identity","income"],
+						"options": [
+							"auth",
+							"transactions",
+							"balance",
+							"identity",
+							"income"
+						],
 						"info": "Single product type."
 					}
 				}
-
 			],
 			"callbacks": [{
 				"name": "error",
@@ -261,20 +258,18 @@
 		{
 			"name": "getSingleInstitution",
 			"description": "Returns response containing details on a specified financial institution currently supported by Plaid.",
-			"args": [
-				{
-					"name": "PublicKey",
-					"type": "credentials",
-					"info": "Private API key from user dashboard.",
-					"required": true
-				},
+			"args": [{
+				"name": "PublicKey",
+				"type": "credentials",
+				"info": "Private API key from user dashboard.",
+				"required": true
+			},
 				{
 					"name": "institutionId",
 					"type": "String",
 					"info": "Single institution id.",
 					"required": true
 				}
-
 			],
 			"callbacks": [{
 				"name": "error",
@@ -289,7 +284,9 @@
 		{
 			"name": "getCategories",
 			"description": "Send a request to the getCategories endpoint to get detailed information on categories returned by Plaid. This endpoint does not require authentication.",
-			"args": [],
+			"args": [
+
+			],
 			"callbacks": [{
 				"name": "error",
 				"info": "Error"
@@ -303,13 +300,12 @@
 		{
 			"name": "searchInstitution",
 			"description": "Returns response containing details on a specified financial institution currently supported by Plaid.",
-			"args": [
-				{
-					"name": "PublicKey",
-					"type": "credentials",
-					"info": "Private API key from user dashboard.",
-					"required": true
-				},
+			"args": [{
+				"name": "PublicKey",
+				"type": "credentials",
+				"info": "Private API key from user dashboard.",
+				"required": true
+			},
 				{
 					"name": "productsType",
 					"type": "List",
@@ -318,7 +314,13 @@
 					"structure": {
 						"name": "productType",
 						"type": "Select",
-						"options":["auth","transactions","balance","identity","income"],
+						"options": [
+							"auth",
+							"transactions",
+							"balance",
+							"identity",
+							"income"
+						],
 						"info": "Single product type."
 					}
 				},
@@ -328,7 +330,6 @@
 					"info": "The search query.Institutions with names matching the query are returned.",
 					"required": true
 				}
-
 			],
 			"callbacks": [{
 				"name": "error",
@@ -343,13 +344,12 @@
 		{
 			"name": "createWebhook",
 			"description": "The createWebhook allows you to create the webhook associated with an Item.",
-			"args": [
-				{
-					"name": "clientId",
-					"type": "credentials",
-					"info": "Private API key from user dashboard.",
-					"required": true
-				},
+			"args": [{
+				"name": "clientId",
+				"type": "credentials",
+				"info": "Private API key from user dashboard.",
+				"required": true
+			},
 				{
 					"name": "secret",
 					"type": "credentials",
@@ -368,8 +368,6 @@
 					"info": "The new webhookUrl to associate with the Item.",
 					"required": true
 				}
-
-
 			],
 			"callbacks": [{
 				"name": "error",
@@ -384,13 +382,12 @@
 		{
 			"name": "updateWebhook",
 			"description": "The updateWebhook allows you to update the webhook associated with an Item.",
-			"args": [
-				{
-					"name": "clientId",
-					"type": "credentials",
-					"info": "Private API key from user dashboard.",
-					"required": true
-				},
+			"args": [{
+				"name": "clientId",
+				"type": "credentials",
+				"info": "Private API key from user dashboard.",
+				"required": true
+			},
 				{
 					"name": "secret",
 					"type": "credentials",
@@ -409,8 +406,6 @@
 					"info": "The new webhookUrl to associate with the Item.",
 					"required": true
 				}
-
-
 			],
 			"callbacks": [{
 				"name": "error",
@@ -425,13 +420,12 @@
 		{
 			"name": "getAccounts",
 			"description": "The getAccounts endpoint returns information about accounts.",
-			"args": [
-				{
-					"name": "clientId",
-					"type": "credentials",
-					"info": "Private API key from user dashboard.",
-					"required": true
-				},
+			"args": [{
+				"name": "clientId",
+				"type": "credentials",
+				"info": "Private API key from user dashboard.",
+				"required": true
+			},
 				{
 					"name": "secret",
 					"type": "credentials",
@@ -458,13 +452,12 @@
 		{
 			"name": "getPublicToken",
 			"description": "If you need your user to take action to restore or resolve an error associated with an Item, generate a public token with the getAccounts.",
-			"args": [
-				{
-					"name": "clientId",
-					"type": "credentials",
-					"info": "Private API key from user dashboard.",
-					"required": true
-				},
+			"args": [{
+				"name": "clientId",
+				"type": "credentials",
+				"info": "Private API key from user dashboard.",
+				"required": true
+			},
 				{
 					"name": "secret",
 					"type": "credentials",
@@ -491,13 +484,12 @@
 		{
 			"name": "getAccountsTransactions",
 			"description": "The getAccountsTransactions endpoint allows developers to receive user-authorized transaction data for credit and depository-type Accounts.",
-			"args": [
-				{
-					"name": "clientId",
-					"type": "credentials",
-					"info": "Private API key from user dashboard.",
-					"required": true
-				},
+			"args": [{
+				"name": "clientId",
+				"type": "credentials",
+				"info": "Private API key from user dashboard.",
+				"required": true
+			},
 				{
 					"name": "secret",
 					"type": "credentials",
@@ -534,8 +526,6 @@
 					"info": "The number of transaction to skip before returning results.",
 					"required": false
 				}
-
-
 			],
 			"callbacks": [{
 				"name": "error",
@@ -550,13 +540,12 @@
 		{
 			"name": "rotateAccessToken",
 			"description": "You can use the rotateAccessToken endpoint to rotate the accessToken associated with an Item.",
-			"args": [
-				{
-					"name": "clientId",
-					"type": "credentials",
-					"info": "Private API key from user dashboard.",
-					"required": true
-				},
+			"args": [{
+				"name": "clientId",
+				"type": "credentials",
+				"info": "Private API key from user dashboard.",
+				"required": true
+			},
 				{
 					"name": "secret",
 					"type": "credentials",
@@ -583,13 +572,12 @@
 		{
 			"name": "updateAccessTokenVersion",
 			"description": "Calling this endpoint does not revoke the legacy API access_token. You can still use the legacy access_token in the legacy API environment to retrieve data. ",
-			"args": [
-				{
-					"name": "clientId",
-					"type": "credentials",
-					"info": "Private API key from user dashboard.",
-					"required": true
-				},
+			"args": [{
+				"name": "clientId",
+				"type": "credentials",
+				"info": "Private API key from user dashboard.",
+				"required": true
+			},
 				{
 					"name": "secret",
 					"type": "credentials",
@@ -616,13 +604,12 @@
 		{
 			"name": "getIncome",
 			"description": "The getIncome endpoint allows you to retrieve information pertaining to a Item’s income.",
-			"args": [
-				{
-					"name": "clientId",
-					"type": "credentials",
-					"info": "Private API key from user dashboard.",
-					"required": true
-				},
+			"args": [{
+				"name": "clientId",
+				"type": "credentials",
+				"info": "Private API key from user dashboard.",
+				"required": true
+			},
 				{
 					"name": "secret",
 					"type": "credentials",
@@ -649,13 +636,12 @@
 		{
 			"name": "getIdentity",
 			"description": "The getIdentity endpoint allows you to retrieve various account holder information on file with the financial institution, including names, emails, phone numbers, and addresses.",
-			"args": [
-				{
-					"name": "clientId",
-					"type": "credentials",
-					"info": "Private API key from user dashboard.",
-					"required": true
-				},
+			"args": [{
+				"name": "clientId",
+				"type": "credentials",
+				"info": "Private API key from user dashboard.",
+				"required": true
+			},
 				{
 					"name": "secret",
 					"type": "credentials",
@@ -679,75 +665,69 @@
 				}
 			]
 		},
-			{
-					"name": "deleteItem",
-					"description": "The deleteItem endpoint allows you to delete an Item",
-					"args": [
-						{
-							"name": "clientId",
-							"type": "credentials",
-							"info": "Private API key from user dashboard.",
-							"required": true
-						},
-						{
-							"name": "secret",
-							"type": "credentials",
-							"info": "Private API key from user dashboard.",
-							"required": true
-						},
-						{
-							"name": "accessTokenOld",
-							"type": "credentials",
-							"info": "A rotatable API token unique to a single Item.",
-							"required": true
-						}
-					],
-					"callbacks": [{
-						"name": "error",
-						"info": "Error"
-					},
-						{
-							"name": "success",
-							"info": "Success"
-						}
-					]
+		{
+			"name": "deleteItem",
+			"description": "The deleteItem endpoint allows you to delete an Item",
+			"args": [{
+				"name": "clientId",
+				"type": "credentials",
+				"info": "Private API key from user dashboard.",
+				"required": true
+			},
+				{
+					"name": "secret",
+					"type": "credentials",
+					"info": "Private API key from user dashboard.",
+					"required": true
 				},
 				{
-							"name": "resetItemLogin",
-							"description": "The resetItemLogin endpoint allows you put an Item in an ITEM_LOGIN_REQUIRED error state.",
-							"args": [
-								{
-									"name": "clientId",
-									"type": "credentials",
-									"info": "Private API key from user dashboard.",
-									"required": true
-								},
-								{
-									"name": "secret",
-									"type": "credentials",
-									"info": "Private API key from user dashboard.",
-									"required": true
-								},
-								{
-									"name": "accessTokenOld",
-									"type": "credentials",
-									"info": "A rotatable API token unique to a single Item.",
-									"required": true
-								}
-							],
-							"callbacks": [{
-								"name": "error",
-								"info": "Error"
-							},
-								{
-									"name": "success",
-									"info": "Success"
-								}
-							]
-						}
-
-
-
-
-		]
+					"name": "accessTokenOld",
+					"type": "credentials",
+					"info": "A rotatable API token unique to a single Item.",
+					"required": true
+				}
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "resetItemLogin",
+			"description": "The resetItemLogin endpoint allows you put an Item in an ITEM_LOGIN_REQUIRED error state.",
+			"args": [{
+				"name": "clientId",
+				"type": "credentials",
+				"info": "Private API key from user dashboard.",
+				"required": true
+			},
+				{
+					"name": "secret",
+					"type": "credentials",
+					"info": "Private API key from user dashboard.",
+					"required": true
+				},
+				{
+					"name": "accessTokenOld",
+					"type": "credentials",
+					"info": "A rotatable API token unique to a single Item.",
+					"required": true
+				}
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		}
+	]
 }
