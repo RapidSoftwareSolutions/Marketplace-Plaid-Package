@@ -16,7 +16,8 @@
 		"domain": "https://plaid.com",
 		"credentials": [
 			"clientId",
-			"secret"
+			"secret",
+			"publicKey"
 		]
 	},
 	"events": [{
@@ -257,8 +258,8 @@
 			"description": "Returns response containing details on a specified financial institution currently supported by Plaid.",
 			"args": [{
 				"name": "publicKey",
-				"type": "String",
-				"info": "Private API key from user dashboard.",
+				"type": "credentials",
+				"info": "Public API key from user dashboard.",
 				"required": true
 			},
 				{
@@ -299,8 +300,8 @@
 			"description": "Returns response containing details on a specified financial institution currently supported by Plaid.",
 			"args": [{
 				"name": "publicKey",
-				"type": "String",
-				"info": "Private API key from user dashboard.",
+				"type": "credentials",
+				"info": "Public API key from user dashboard.",
 				"required": true
 			},
 				{

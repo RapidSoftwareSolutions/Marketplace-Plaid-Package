@@ -2,7 +2,7 @@
 # Plaid Package
 Our technology makes it easy to access high-quality transaction data, validate account ownership, and mitigate risks in a user-friendly way.
 * Domain: [plaid.com](https://plaid.com)
-* Credentials: clientId,secret
+* Credentials: clientId,publicKey,secret
 
 ## How to get credentials: 
 1. Register on [plaid.com](https://plaid.com).
@@ -18,6 +18,7 @@ Our technology makes it easy to access high-quality transaction data, validate a
   |List|Simple array|```["123", "sample"]```
   |Select|String with predefined values|```sample```
   |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
+ 
  
 ## Plaid.getAccessToken
 Exchange a Link publicToken for an API accessToken.
@@ -72,10 +73,10 @@ Returns response containing details on all financial institutions currently supp
 ## Plaid.getSingleInstitution
 Returns response containing details on a specified financial institution currently supported by Plaid.
 
-| Field        | Type  | Description
-|--------------|-------|----------
-| publicKey    | String| Private API key from user dashboard.
-| institutionId| String| Single institution id.
+| Field        | Type       | Description
+|--------------|------------|----------
+| publicKey    | credentials| Public API key from user dashboard.
+| institutionId| String     | Single institution id.
 
 ## Plaid.getCategories
 Send a request to the getCategories endpoint to get detailed information on categories returned by Plaid. This endpoint does not require authentication.
@@ -85,11 +86,11 @@ No arguments.
 ## Plaid.searchInstitution
 Returns response containing details on a specified financial institution currently supported by Plaid.
 
-| Field       | Type  | Description
-|-------------|-------|----------
-| publicKey   | String| Private API key from user dashboard.
-| productsType| List  | Filter the Institutions based on whether they support all products listed in products.
-| querySearch | String| The search query.Institutions with names matching the query are returned.
+| Field       | Type       | Description
+|-------------|------------|----------
+| publicKey   | credentials| Public API key from user dashboard.
+| productsType| List       | Filter the Institutions based on whether they support all products listed in products.
+| querySearch | String     | The search query.Institutions with names matching the query are returned.
 
 ## Plaid.createWebhook
 The createWebhook allows you to create the webhook associated with an Item.

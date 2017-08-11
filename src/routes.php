@@ -1,7 +1,6 @@
 <?php
 $routes = [
     'metadata',
-    'test',
     'getAllInstitutions',
     'getAccessToken',
     'getAuth',
