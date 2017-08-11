@@ -28,7 +28,7 @@ Exchange a Link publicToken for an API accessToken.
 | publicToken| String     | Short-lived API token.
 
 ## Plaid.getItem
-The getItem endpoint returns information about the status of an Item: Available products; Billed products; Error status; Institution ID (institution_id);Item ID (item_id); Webhook;
+The getItem endpoint returns information about the status of an Item: Available products; Billed products; Error status; Institution ID; Item ID; Webhook;
 
 | Field      | Type       | Description
 |------------|------------|----------
