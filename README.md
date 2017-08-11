@@ -74,7 +74,7 @@ Returns response containing details on a specified financial institution current
 
 | Field        | Type       | Description
 |--------------|------------|----------
-| PublicKey    | credentials| Private API key from user dashboard.
+| publicKey    | credentials| Private API key from user dashboard.
 | institutionId| String     | Single institution id.
 
 ## Plaid.getCategories
@@ -87,7 +87,7 @@ Returns response containing details on a specified financial institution current
 
 | Field       | Type       | Description
 |-------------|------------|----------
-| PublicKey   | credentials| Private API key from user dashboard.
+| publicKey   | credentials| Private API key from user dashboard.
 | productsType| List       | Filter the Institutions based on whether they support all products listed in products.
 | querySearch | String     | The search query.Institutions with names matching the query are returned.
 

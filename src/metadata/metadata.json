@@ -259,7 +259,7 @@
 			"name": "getSingleInstitution",
 			"description": "Returns response containing details on a specified financial institution currently supported by Plaid.",
 			"args": [{
-				"name": "PublicKey",
+				"name": "publicKey",
 				"type": "credentials",
 				"info": "Private API key from user dashboard.",
 				"required": true
@@ -301,7 +301,7 @@
 			"name": "searchInstitution",
 			"description": "Returns response containing details on a specified financial institution currently supported by Plaid.",
 			"args": [{
-				"name": "PublicKey",
+				"name": "publicKey",
 				"type": "credentials",
 				"info": "Private API key from user dashboard.",
 				"required": true
