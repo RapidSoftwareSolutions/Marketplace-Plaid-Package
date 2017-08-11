@@ -1,24 +1,11 @@
-[![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/Plaid/functions?utm_source=RapidAPIGitHub_PlaidFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
 # Plaid Package
 Our technology makes it easy to access high-quality transaction data, validate account ownership, and mitigate risks in a user-friendly way.
-* Domain: [plaid.com](https://plaid.com)
-* Credentials: clientId,publicKey,secret, publicToken,accessToken 
+* Domain: https://plaid.com
+* Credentials: clientId, publicToken, secret, accessToken, publicKey
 
 ## How to get credentials: 
-1. Register on [plaid.com](https://plaid.com).
-2. After creation your account you will see api clientId,api publicKey and secret.
-3. To get the publicToken you need to create [Plaid link](https://blog.plaid.com/plaid-link/) with your api publicKey.
-4. After authorization, your publicToken will be visible in the GET parameters.
-
-## Custom datatypes:
-  |Datatype|Description|Example
-  |--------|-----------|----------
-  |Datepicker|String which includes date and time|```2016-05-28 00:00:00```
-  |Map|String which includes latitude and longitude coma separated|```50.37, 26.56```
-  |List|Simple array|```["123", "sample"]```
-  |Select|String with predefined values|```sample```
-  |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
- 
+0. Item one 
+1. Item two
  
 ## Plaid.getAccessToken
 Exchange a Link publicToken for an API accessToken.
@@ -27,7 +14,7 @@ Exchange a Link publicToken for an API accessToken.
 |------------|------------|----------
 | clientId   | credentials| Private API key from user dashboard.
 | secret     | credentials| Private API key from user dashboard.
-| publicToken| credentials     | Short-lived API token.
+| publicToken| String     | Short-lived API token.
 
 ## Plaid.getSingleItem
 The getSingleItem endpoint returns information about the status of an Item: Available products; Billed products; Error status; Institution ID ;Item ID; Webhook;
@@ -173,27 +160,27 @@ The getIncome endpoint allows you to retrieve information pertaining to a Itemâ€
 ## Plaid.getIdentity
 The getIdentity endpoint allows you to retrieve various account holder information on file with the financial institution, including names, emails, phone numbers, and addresses.
 
-| Field         | Type       | Description
-|---------------|------------|----------
-| clientId      | credentials| Private API key from user dashboard.
-| secret        | credentials| Private API key from user dashboard.
-| accessTokenOld| credentials| A rotatable API token unique to a single Item.
+| Field      | Type       | Description
+|------------|------------|----------
+| clientId   | credentials| Private API key from user dashboard.
+| secret     | credentials| Private API key from user dashboard.
+| accessToken| credentials| A rotatable API token unique to a single Item.
 
 ## Plaid.deleteItem
 The deleteItem endpoint allows you to delete an Item
 
-| Field         | Type       | Description
-|---------------|------------|----------
-| clientId      | credentials| Private API key from user dashboard.
-| secret        | credentials| Private API key from user dashboard.
-| accessTokenOld| credentials| A rotatable API token unique to a single Item.
+| Field      | Type       | Description
+|------------|------------|----------
+| clientId   | credentials| Private API key from user dashboard.
+| secret     | credentials| Private API key from user dashboard.
+| accessToken| credentials| A rotatable API token unique to a single Item.
 
 ## Plaid.resetItemLogin
 The resetItemLogin endpoint allows you put an Item in an ITEM_LOGIN_REQUIRED error state.
 
-| Field         | Type       | Description
-|---------------|------------|----------
-| clientId      | credentials| Private API key from user dashboard.
-| secret        | credentials| Private API key from user dashboard.
-| accessTokenOld| credentials| A rotatable API token unique to a single Item.
+| Field      | Type       | Description
+|------------|------------|----------
+| clientId   | credentials| Private API key from user dashboard.
+| secret     | credentials| Private API key from user dashboard.
+| accessToken| credentials| A rotatable API token unique to a single Item.
 
